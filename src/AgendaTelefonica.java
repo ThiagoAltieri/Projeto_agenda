@@ -28,13 +28,13 @@ public class AgendaTelefonica {
 
         for (String numero : numeros) {
             if (telefoneJaCadastrado(numero)) {
-                System.out.println("Erro: Já existe um contato com o número " + numero);
+                System.out.println("Já existe um contato cujo número é " + numero);
                 return;
             }
         }
 
         if (contatoIdJaCadastrado(proximoIdContato)) {
-            System.out.println("Erro: Já existe um contato com o ID " + proximoIdContato);
+            System.out.println("Já existe um contato cujo ID é " + proximoIdContato);
             return;
         }
 
@@ -48,7 +48,7 @@ public class AgendaTelefonica {
         proximoIdContato++;
 
         salvarContatos();
-        System.out.println("Contato adicionado com sucesso!");
+        System.out.println("O contato foi adicionado");
     }
 
     // Verificar se o ID do contato já está cadastrado
@@ -78,7 +78,7 @@ public class AgendaTelefonica {
         contatos.removeIf(contato -> contato.getId().equals(id));
 
         salvarContatos();
-        System.out.println("Contato removido com sucesso!");
+        System.out.println("O contato foi removido");
     }
 
     // Edita um contato da agenda: busca pelo contato com o ID informado, Verifica se os
@@ -90,7 +90,7 @@ public class AgendaTelefonica {
             if (contato.getId().equals(id)) {
                 for (String numero : novosNumeros) {
                     if (telefoneJaCadastrado(numero) && !telefonePertenceContato(id, numero)) {
-                        System.out.println("Erro: Já existe um contato com o número " + numero);
+                        System.out.println("Já existe um contato cujo número é" + numero);
                         return;
                     }
                 }
@@ -104,11 +104,11 @@ public class AgendaTelefonica {
                 contato.setTelefones(novosTelefones);
 
                 salvarContatos();
-                System.out.println("Contato editado com sucesso!");
+                System.out.println("Contato editado");
                 return;
             }
         }
-        System.out.println("Contato não encontrado!");
+        System.out.println("Contato não encontrado");
     }
 
     // Verifica se um número de telefone pertence a um contato
@@ -168,7 +168,7 @@ public class AgendaTelefonica {
                 }
             }
         } catch (IOException e) {
-            System.err.println("Erro ao carregar contatos do arquivo: " + e.getMessage());
+            System.err.println("Foi impossível carregar os contatos do arquivo: " + e.getMessage());
         }
     }
 
@@ -181,7 +181,7 @@ public class AgendaTelefonica {
                 bw.newLine();
             }
         } catch (IOException e) {
-            System.err.println("Erro ao salvar contatos no arquivo: " + e.getMessage());
+            System.err.println("´Foi impossível salvar os contatos no arquivo: " + e.getMessage());
         }
     }
 
