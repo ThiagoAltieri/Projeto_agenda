@@ -190,7 +190,7 @@ public class AgendaTelefonica {
     public static void main(String[] args) {
 
         AgendaTelefonica agenda = new AgendaTelefonica();
-        /
+
         Scanner scanner = new Scanner(System.in);
 
         int opcao;
